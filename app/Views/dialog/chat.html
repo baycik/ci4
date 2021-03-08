@@ -1,0 +1,324 @@
+<script>
+    /* global App*/
+    App.page_dialog_chat = {
+	has_new_status:0,
+	init: function () {
+	    this.node.window({
+		width: 800,
+		title: 'Чат',
+		height: 420,
+		onClose: function () {
+		    App.page_dialog_chat.destroy();
+		}
+	    });
+	    this.node.window('center');
+            Mark.pipes.date_simplify=function(date){
+                let now=new Date();
+                let then=new Date(date);
+                let simplified=`${then.getHours().toString().padStart(2, '0')}:${then.getMinutes().toString().padStart(2, '0')}`;
+                if( now.getTime()-then.getTime()>24*60*60*1000 || then.getDate()!==now.getDate() ){
+                    simplified=`${then.getDate().toString().padStart(2, '0')}.${(then.getMonth()+1).toString().padStart(2, '0')} ${simplified}`;
+                }
+                return simplified;
+            };
+	    $("#chat_form").submit(function (e) {
+		e.preventDefault();
+		var text = $("#chat_form input").val();
+		$("#chat_form input").val('');
+		App.page_dialog_chat.sendRecieve(text);
+	    });
+	    App.page_dialog_chat.counterpart = App.cookie('last_chat_counterpart') || 'all';
+	    //this.clock=setInterval(App.page_dialog_chat.sendRecieve,1000);
+            App.page_dialog_chat.loadUserlist();
+	    this.sendRecieve();
+	},
+	destroy:function(){
+	    clearInterval(App.page_dialog_chat.clock);
+            clearInterval(App.page_dialog_chat.ulistclock);
+	    App.page_dialog_chat.node.window('destroy');
+	    delete App.page_dialog_chat;
+	},
+	loadUserlist: function () {
+	    App.get('Chat/getUserList', function (resp) {
+		var users = {user_list: App.json(resp)};
+		App.renderTpl('chat_users', users);
+		$("#chat_users div[data-user=" + App.page_dialog_chat.counterpart + "]").addClass('user_selected');
+	    });
+            clearTimeout(App.page_dialog_chat.ulistclock);
+            App.page_dialog_chat.ulistclock=setTimeout(function(){
+                App.page_dialog_chat.loadUserlist();
+            },3*60*1000);
+	},
+	setCounterpart: function (user_div) {
+	    $("#chat_users div").removeClass('user_selected');
+	    $(user_div).addClass('user_selected');
+	    this.counterpart = $(user_div).data('user');
+	    App.cookie('last_chat_counterpart', this.counterpart);
+            
+            App.page_dialog_chat.renderedMessages={};
+            $("#chat_field").html('');
+	},
+	msg_count:0,
+	sendRecieve: function (msg) {
+	    App.post(App.uri('Chat', 'sendRecieve', App.page_dialog_chat.counterpart || ''),{message:msg,is_phone_sms:App.page_dialog_chat.is_phone_sms?1:0}, function (resp) {
+		var resp=App.json(resp);
+		App.page_dialog_chat.renderDialog(resp.dialog);
+		if( App.has_new_status!==resp.has_new*1 ){
+		    App.page_dialog_chat.loadUserlist();
+		    App.chatCheck();
+		    App.has_new_status=resp.has_new*1;
+		}
+                clearTimeout(App.page_dialog_chat.clock);
+		App.page_dialog_chat.clock=setTimeout(function(){
+		    try{App.page_dialog_chat.sendRecieve();}catch(e){};
+		},1000);
+	    });
+	    App.page_dialog_chat.is_phone_sms=false;
+	},
+        renderedMessages:{},
+	renderDialog:function( dialog ){
+            if( !dialog ){
+                //return;
+            }
+            for(let item of dialog){
+                if( item.event_status==='done' ){
+                    $("#chat_msg"+item.event_id+" .blinkborder").removeClass('white blinkborder').addClass('yellow done');
+                    $("#chat_msg"+item.event_id+" .white").removeClass('white').addClass('blue');
+                }
+                if( App.page_dialog_chat.renderedMessages[item.event_id] || !item.is_chat ){
+                    continue;
+                }
+                App.page_dialog_chat.renderedMessages[item.event_id]=1;
+                let message_html=App.page_dialog_chat.renderMessage(item);
+                let chat_entry=$('<div></div>').prop('id','chat_msg'+item.event_id).html(message_html);
+                $("#chat_field").append(chat_entry);
+                
+                clearTimeout(animation_clock);
+                var animation_clock=setTimeout(function(){
+                    $("#chat_field").animate({scrollTop: $("#chat_field")[0].scrollHeight}, 1000);
+                },100);
+            }
+	},
+        renderMessage:function(message){
+            App.renderTpl('chat_message_template',{message:message});
+            return $("#chat_message_template").html();
+        },
+	eventLoad:function(node){
+	    var event_id=$(node).parent().data('event-id');
+	    App.get("Events/eventGet/"+event_id,function(resp){
+		var fvalue=App.json(resp);
+		App.loadWindow('page/events/event', fvalue);
+	    });
+	},
+	eventDone:function(node){
+	    var event_id=$(node).parent().data('event-id');
+	    App.get("Events/eventUpdate/"+event_id+'/event_status/done',function(ok){
+		if( ok*1 ){
+		    alert("Задание отмечено как выполнено");
+		}
+	    });
+	},
+	eventMove:function(node){
+	    var event_id=$(node).parent().data('event-id');
+	    var tomorrow=App.toIso(new Date(new Date().getTime() + 24 * 60 * 60 * 1000));
+	    App.get("Events/eventMove/"+event_id+'/'+tomorrow,function(ok){
+		if( ok*1 ){
+		    alert("Задание перенесено на завтра");
+		}
+	    });
+	}
+    };
+</script>
+<div id="chat_users">
+    {{user_list}}
+    <div onclick="App.page_dialog_chat.setCounterpart(this)" data-user="{{user_id}}" class="{{if has_new|more>0}}blink{{/if}}">
+        {{if is_online|more>0}}
+        <img src="img/grn.png">
+        {{else}}
+        <img src="img/red.png">
+        {{/if}}
+	{{if name}}
+	    {{name}}
+	{{else}}
+	    {{user_login}}
+	{{/if}}
+    </div>
+    {{/user_list}}
+</div>
+<div id="chat_field"></div>
+<div id="chat_message_template" style="display: none">
+    {{message}}
+    {{if for_me}}
+    <div class="bubble bubble-alt {{if event_status|equals>undone}}white blinkborder{{else}}yellow done{{/if}} {{if is_chat|less>1}}bubble-event{{/if}}" title="Отправлено {{time}}">
+	{{if is_chat|less>1}}
+	<div data-event-id="{{event_id}}">
+	    <button class="fordonebuttons" type="button" onclick="App.page_dialog_chat.eventDone(this)"><img src="img/ok.png"> Выполнено</button>
+	    <button class="fordonebuttons" type="button" onclick="App.page_dialog_chat.eventMove(this)"><img src="img/big_rightarrow.png" style="width:16px;height:16px;"> Отложить</button>
+	    <button type="button" onclick="App.page_dialog_chat.eventLoad(this)"><img src="img/Edit-24.png" style="width:16px;height:16px;"> Изменить</button><br><br>
+	    Напоминание задания {{time}}<hr>
+	    <b>{{event_name}}</b><br>
+	    <b>Место:</b> {{event_place}}<br>
+	    <b>Цель:</b> {{event_target}}<br><br>
+	</div>
+	{{/if}}
+        <span style="color:#666"><!--{{event_date|date_simplify}}--> </span>
+	{{event_descr}}
+    </div>
+    {{else}}
+    <div class="bubble {{if event_status|equals>undone}}white{{else}}blue{{/if}}" title="Отправлено {{time}}">
+        <span style="color:#666"><!--{{event_date|date_simplify}}--> </span>
+        {{event_descr}}
+    </div>
+    {{/if}}
+    {{/message}}
+</div> 
+<form id="chat_form">
+    <table style="width: 100%">
+	<tr>
+	    <td><input type="text" style="width: calc(100% - 10px);height:30px;"/></td>
+	    <td style="width:90px">
+		<button type="submit"><img src="img/sms.png"></button>
+		<button type="submit" onclick="App.page_dialog_chat.is_phone_sms=true"><img src="img/phone-sms.png"></button>
+	    </td>
+	</tr>
+    </table>
+</form>
+<style>
+    #chat_users{
+	max-height: 300px;
+        float: right;
+        background-color: #7af;
+	overflow-y: auto;
+        width:200px;
+    }
+    #chat_users div{
+        padding: 5px;
+        margin: 1px;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #chat_users div:hover{
+        background-color: rgb(180,220,250);
+    }
+    #chat_users .user_selected{
+        background-color: #ffc;
+    }
+    #chat_users .has_new{
+	font-weight: bold;
+	text-decoration: underline;
+    }
+    #chat_field{
+        height: 300px;
+        overflow: auto;
+	margin: 0 auto;
+	padding: 10px;
+	z-index: 1;
+    }
+    
+    /** ios1-ios6 bubbles **/
+    .bubble {
+	box-sizing: border-box;
+	float: left;
+	width: auto;
+	max-width: 90%;
+	position: relative;
+	clear: both;
+	-background: #95c2fd;
+	-background-image: linear-gradient(bottom, #bee2ff 15%, #95c2fd 100%);
+	border: solid 1px rgba(0,0,0,0.2);
+	border-radius: 20px;
+	box-shadow: inset 0 8px 5px rgba(255,255,255,0.65), 0 1px 2px rgba(0,0,0,0.2);
+	margin-bottom: 20px;
+	padding: 6px 20px;
+	color: #000;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+	word-wrap: break-word;
+    }
+
+    .bubble:before, .bubble:after {
+	border-radius: 20px / 5px;
+	content: '';
+	display: block;
+	position: absolute;
+    }
+    .bubble:before {
+	border: 10px solid transparent;
+	border-bottom-color: rgba(0,0,0,0.2);
+	bottom: 0px;
+	left: -9px;
+	top:8px;
+    }
+    .bubble:after {
+	border: 8px solid transparent;
+	border-bottom-color: #95c2fd; /* arrow color */
+	bottom: 1px;
+	left: -5px;
+    }
+
+    .bubble-alt {
+	float: right;
+    }
+    .bubble-alt:before {
+	left: auto;
+	right: -9px;
+    }
+    .bubble-alt:after {
+	left: auto;
+	right: -5px;
+    }
+    .bubble-event{
+	border: solid 5px rgba(0,0,0,0.2);
+	border-radius: 0px;
+    }
+
+    .bubble p {
+	font-size: 1.4em;
+    }
+
+    /* green bubble */
+    .green {
+	background: #7acd47;
+	background-image: linear-gradient(bottom, #ace44b 15%, #7acd47 100%);
+    }
+    .green:after {
+	border-bottom-color: #ace44b;
+    }
+
+    /* white bubble */
+    .white {
+	-background: rgba(255,255,255,.5);
+	background-image: linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    }
+    .white:after {
+	border-bottom-color: rgba(255,255,255,.9);
+    }
+
+    .yellow {
+	background: #fcf3c3;
+	-background-image: linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    }
+    .yellow:after {
+	border-bottom-color: #fcf3c3;
+    }
+
+    .red {
+	background: rgba(255,150,100,0.3);
+    }
+    .red:after {
+	border-bottom-color: rgba(255,220,200,1);
+    }
+
+    .blue {
+	background: rgba(180,220,250,1);
+	background-image: linear-gradient(bottom, rgba(250,100,250,1) 15%, rgba(250,100,250,1) 100%);
+    }
+    .blue:after {
+	border-bottom-color: rgba(180,220,250,1);
+    }
+    
+    .done .fordonebuttons{
+	display: none;
+    }
+</style>

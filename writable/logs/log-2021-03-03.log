@@ -1,0 +1,47 @@
+CRITICAL - 2021-03-03 12:30:23 --> Class 'Catalog' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-03-03 12:41:34 --> include_once(W:\iSell\www\ci4\app\Models): failed to open stream: Permission denied
+#0 W:\iSell\www\ci4\system\Autoloader\Autoloader.php(161): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include_once(W:...', 'W:\\iSell\\www\\ci...', 161, Array)
+#1 W:\iSell\www\ci4\system\Autoloader\Autoloader.php(161): include_once()
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->CodeIgniter\Autoloader\{closure}('Catalog')
+#3 W:\iSell\www\ci4\app\Models\Company.php(8): spl_autoload_call('Catalog')
+#4 W:\iSell\www\ci4\system\Autoloader\Autoloader.php(365): require_once('W:\\iSell\\www\\ci...')
+#5 W:\iSell\www\ci4\system\Autoloader\Autoloader.php(340): CodeIgniter\Autoloader\Autoloader->requireFile('W:\\iSell\\www\\ci...')
+#6 W:\iSell\www\ci4\system\Autoloader\Autoloader.php(264): CodeIgniter\Autoloader\Autoloader->loadLegacy('Company.php')
+#7 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('Company')
+#8 [internal function]: spl_autoload_call('Company')
+#9 W:\iSell\www\ci4\system\Database\ModelFactory.php(74): class_exists('Company')
+#10 W:\iSell\www\ci4\system\Database\ModelFactory.php(40): CodeIgniter\Database\ModelFactory::createClass('Company', NULL)
+#11 W:\iSell\www\ci4\system\Common.php(742): CodeIgniter\Database\ModelFactory::get('Company', true, NULL)
+#12 W:\iSell\www\ci4\app\Controllers\BaseController.php(68): model('Company')
+#13 W:\iSell\www\ci4\app\Models\User.php(126): App\Controllers\BaseController->load_model('Company')
+#14 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#15 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#16 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#17 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#18 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#19 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#20 {main}
+CRITICAL - 2021-03-03 12:41:56 --> Class 'Catalog' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-03-03 12:42:54 --> Class 'Catalog' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-03-03 12:43:10 --> Class 'App\Models\Catalog' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-03-03 12:43:54 --> Use of undefined constant BAY_STORAGE - assumed 'BAY_STORAGE' (this will throw an Error in a future version of PHP)
+#0 W:\iSell\www\ci4\system\Database\ModelFactory.php(76): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', 'W:\\iSell\\www\\ci...', 76, Array)
+#1 W:\iSell\www\ci4\system\Database\ModelFactory.php(40): CodeIgniter\Database\ModelFactory::createClass('PluginManager', NULL)
+#2 W:\iSell\www\ci4\system\Common.php(742): CodeIgniter\Database\ModelFactory::get('PluginManager', true, NULL)
+#3 W:\iSell\www\ci4\app\Controllers\BaseController.php(68): model('PluginManager')
+#4 W:\iSell\www\ci4\app\Models\User.php(132): App\Controllers\BaseController->load_model('PluginManager')
+#5 W:\iSell\www\ci4\app\Models\User.php(13): User->initLoggedUser(Object(stdClass))
+#6 W:\iSell\www\ci4\app\Controllers\User.php(27): User->SignIn('baycik', '9kx4')
+#7 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#8 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#9 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}

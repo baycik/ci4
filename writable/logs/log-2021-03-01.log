@@ -1,0 +1,117 @@
+CRITICAL - 2021-03-01 12:47:59 --> Undefined property: App\Models\User::$session
+#0 W:\iSell\www\ci4\app\Models\User.php(115): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'W:\\iSell\\www\\ci...', 115, Array)
+#1 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#2 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-03-01 12:51:06 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::update()
+#0 W:\iSell\www\ci4\app\Models\Company.php(204): App\Models\Catalog->update('user_list', Array, Array)
+#1 W:\iSell\www\ci4\app\Models\User.php(128): App\Models\Company->selectActiveCompany('1')
+#2 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#3 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#5 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 12:51:06 --> Uncaught ErrorException: print_r(): Couldn't fetch mysqli_result in W:\iSell\www\ci4\app\Views\errors\html\error_exception.php:100
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'print_r(): Coul...', 'W:\\iSell\\www\\ci...', 100, Array)
+#1 W:\iSell\www\ci4\app\Views\errors\html\error_exception.php(100): print_r(Object(App\Controllers\User), true)
+#2 W:\iSell\www\ci4\system\Debug\Exceptions.php(299): include('W:\\iSell\\www\\ci...')
+#3 W:\iSell\www\ci4\system\Debug\Exceptions.php(172): CodeIgniter\Debug\Exceptions->render(Object(Error), 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-03-01 12:53:44 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::update()
+#0 W:\iSell\www\ci4\app\Models\Company.php(204): App\Models\Catalog->update('user_list', Array, Array)
+#1 W:\iSell\www\ci4\app\Models\User.php(128): App\Models\Company->selectActiveCompany('1')
+#2 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#3 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#5 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 12:53:44 --> Uncaught ErrorException: print_r(): Couldn't fetch mysqli_result in W:\iSell\www\ci4\app\Views\errors\html\error_exception.php:100
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'print_r(): Coul...', 'W:\\iSell\\www\\ci...', 100, Array)
+#1 W:\iSell\www\ci4\app\Views\errors\html\error_exception.php(100): print_r(Object(App\Controllers\User), true)
+#2 W:\iSell\www\ci4\system\Debug\Exceptions.php(299): include('W:\\iSell\\www\\ci...')
+#3 W:\iSell\www\ci4\system\Debug\Exceptions.php(172): CodeIgniter\Debug\Exceptions->render(Object(Error), 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-03-01 12:55:04 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::update()
+#0 W:\iSell\www\ci4\app\Models\Company.php(205): App\Models\Catalog->update('user_list', Array, Array)
+#1 W:\iSell\www\ci4\app\Models\User.php(128): App\Models\Company->selectActiveCompany('1')
+#2 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#3 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#5 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 12:55:04 --> Uncaught ErrorException: print_r(): Couldn't fetch mysqli_result in W:\iSell\www\ci4\app\Views\errors\html\error_exception.php:100
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'print_r(): Coul...', 'W:\\iSell\\www\\ci...', 100, Array)
+#1 W:\iSell\www\ci4\app\Views\errors\html\error_exception.php(100): print_r(Object(App\Controllers\User), true)
+#2 W:\iSell\www\ci4\system\Debug\Exceptions.php(299): include('W:\\iSell\\www\\ci...')
+#3 W:\iSell\www\ci4\system\Debug\Exceptions.php(172): CodeIgniter\Debug\Exceptions->render(Object(Error), 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-03-01 12:59:07 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::affected_rows()
+#0 W:\iSell\www\ci4\app\Models\Company.php(205): App\Models\Catalog->update('user_list', Array, Array)
+#1 W:\iSell\www\ci4\app\Models\User.php(128): App\Models\Company->selectActiveCompany('1')
+#2 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#3 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#5 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 13:00:32 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\BaseController.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 74, Array)
+#1 W:\iSell\www\ci4\app\Models\User.php(132): App\Controllers\BaseController->load_model('PluginManager')
+#2 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#3 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#5 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 13:02:08 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\BaseController.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 73, Array)
+#1 W:\iSell\www\ci4\app\Models\User.php(132): App\Controllers\BaseController->load_model('PluginManager')
+#2 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#3 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#5 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#6 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-03-01 13:03:49 --> Class 'App\Controllers\Exception' not found
+#0 W:\iSell\www\ci4\app\Models\User.php(132): App\Controllers\BaseController->load_model('PluginManager')
+#1 W:\iSell\www\ci4\app\Models\User.php(13): App\Models\User->initLoggedUser(Object(stdClass))
+#2 W:\iSell\www\ci4\app\Controllers\User.php(27): App\Models\User->SignIn('baycik', '9kx4')
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\User->login()
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#5 W:\iSell\www\ci4\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-03-01 13:07:12 --> Class 'Catalog' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-03-01 13:09:21 --> Class 'Catalog' not found
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
