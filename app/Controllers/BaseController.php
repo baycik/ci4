@@ -55,8 +55,6 @@ class BaseController extends Controller {
 	}
         die;
     }
-
-    
     public function load_model( $name ){
 	$trigger_before=$this->svar('trigger_before');
 	$trigger_after=$this->svar('trigger_after');

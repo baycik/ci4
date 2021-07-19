@@ -1,0 +1,87 @@
+CRITICAL - 2021-03-10 22:51:45 --> Model 'App\Models\favicon.png' not found
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#1 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-03-10 23:02:32 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:02:48 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:02:49 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:02:49 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:02:50 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:03:05 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:03:06 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:03:06 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:03:07 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2021-03-10 23:03:07 --> Creating default object from empty value
+#0 W:\iSell\www\ci4\app\Controllers\Hub.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Creating defaul...', 'W:\\iSell\\www\\ci...', 40, Array)
+#1 W:\iSell\www\ci4\app\Controllers\Hub.php(18): App\Controllers\Hub->execute('App\\Models\\favi...', 'favicon.png', '')
+#2 W:\iSell\www\ci4\system\CodeIgniter.php(914): App\Controllers\Hub->on()
+#3 W:\iSell\www\ci4\system\CodeIgniter.php(950): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Hub))
+#4 W:\iSell\www\ci4\system\CodeIgniter.php(324): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#5 W:\iSell\www\ci4\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}

@@ -19,7 +19,11 @@ class Hub extends BaseController {
     }
     
     private function execute($class_path,$class_name,$method_name){
-        $this->$class_name=model($class_path,true);
+        try{
+            $this->$class_name=model($class_path,true);
+        } catch (Exception $ex) {
+            //die;;
+        }
         if( !$this->$class_name ){
             throw new \Exception("Model '$class_path' not found");
         }
